@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './Header.js'
 import EtlButtonsPane from './EtlButtonsPane.js'
 import Button from './Button.js'
+import {Button as RSButton} from 'reactstrap';
 import LoggingPane from './LoggingPane.js'
 import DataPane from './DataPane.js'
 import './App.css';
@@ -40,7 +41,7 @@ class App extends Component {
                     <EtlButtonsPane handleLogging={this.handleLogging}/>
                     <div>
                         <Button name="ETL" onClick={this.handleEntireEtlProcess}/>
-                        <Button color="success">ETL</Button>{' '}
+                        <RSButton color="success">ETL</RSButton>{' '}
                         <Button name="LOAD DATA FROM DATABASE" onClick={this.loadDataFromDb}/>
                     </div>
                     <LoggingPane log={this.state.log}/>
