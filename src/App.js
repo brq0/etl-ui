@@ -40,6 +40,7 @@ class App extends Component {
                     <EtlButtonsPane handleLogging={this.handleLogging}/>
                     <div>
                         <Button name="ETL" onClick={this.handleEntireEtlProcess}/>
+                        <Button color="success">ETL</Button>{' '}
                         <Button name="LOAD DATA FROM DATABASE" onClick={this.loadDataFromDb}/>
                     </div>
                     <LoggingPane log={this.state.log}/>
