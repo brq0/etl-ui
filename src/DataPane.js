@@ -19,8 +19,8 @@ class DataPane extends Component {
 
     render() {
         return (
-            <div className="DataPane">
-                    <table id="dbTable">
+            <div className="DataPane ml-5 mr-5">
+                    <table id="dbTable"className="cell-border compact">
                             <thead>
                                 <tr>
                                     {this.state.head.map((item, i) => <th key={i}>{item}</th>)}

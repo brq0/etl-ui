@@ -46,7 +46,9 @@ class App extends Component {
                             <RSButton className="col-2 ml-1" color="danger" onClick={this.loadDataFromDb}>Restart Database</RSButton>
                         </div>
                     </div>
+                    <hr/>
                     <LoggingPane log={this.state.log}/>
+                    <hr/>
                     <DataPane />
             </div>
         );
