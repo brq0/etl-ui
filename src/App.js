@@ -37,10 +37,14 @@ class App extends Component {
             <div className="App">
                     <Header />
                     <EtlButtonsPane handleLogging={this.handleLogging}/>
-                    <div>
-                        <Button name="ETL" onClick={this.handleEntireEtlProcess}/>
-                        <RSButton color="success">ETL</RSButton>{' '}
-                        <Button name="LOAD DATA FROM DATABASE" onClick={this.loadDataFromDb}/>
+                    <div className="ml-5 mr-5">
+                        <div className="mt-5 mb-3">
+                                <RSButton className="col-4" color="primary" onClick={this.handleEntireEtlProcess}>ETL</RSButton>
+                        </div>
+                        <div className="mb-5">
+                            <RSButton className="col-2 ml-1" color="success" onClick={this.loadDataFromDb}>LOAD DATA</RSButton>
+                            <RSButton className="col-2 ml-1" color="danger" onClick={this.loadDataFromDb}>Restart Database</RSButton>
+                        </div>
                     </div>
                     <LoggingPane log={this.state.log}/>
                     <DataPane />
