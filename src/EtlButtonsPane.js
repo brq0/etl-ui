@@ -6,30 +6,34 @@ import * as CONF from './conf/Conf.js'
 class EtlButtonsPane extends Component {
     constructor(props) {
         super(props);
+
+        this.handleExtract = this.handleExtract.bind(this);
+        this.handleTransfer = this.handleTransfer.bind(this);
+        this.handleLoad = this.handleLoad.bind(this);
     }
 
     handleExtract(e){
-      console.log("extract")
+       console.log("extract")
        axios.get(`${CONF.PAGE}/extract`)
              .then(({data}) => {
-                  console.log(data);
+                  {this.props.handleLogging(data)}
        });
     }
 
     handleTransfer(e){
       console.log("transfer")
       axios.get(`${CONF.PAGE}/transfer`)
-                  .then(({data}) => {
-                       console.log(data);
-            });
+            .then(({data}) => {
+                 {this.props.handleLogging(data)}
+      });
     }
 
     handleLoad(e){
       console.log("load")
       axios.get(`${CONF.PAGE}/load`)
-                  .then(({data}) => {
-                       console.log(data);
-            });
+            .then(({data}) => {
+                  {this.props.handleLogging(data)}
+      });
     }
 
     render() {

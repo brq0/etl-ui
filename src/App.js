@@ -12,7 +12,17 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            log: 'Logging'
+        };
+
+         this.handleLogging = this.handleLogging.bind(this);
+    }
+
+    handleLogging(e){
+        this.setState({
+            log: e
+        })
     }
 
     handleEntireEtlProcess(e){
@@ -27,12 +37,12 @@ class App extends Component {
         return (
             <div className="App">
                     <Header />
-                    <EtlButtonsPane />
+                    <EtlButtonsPane handleLogging={this.handleLogging}/>
                     <div>
                         <Button name="ETL" onClick={this.handleEntireEtlProcess}/>
                         <Button name="LOAD DATA FROM DATABASE" onClick={this.loadDataFromDb}/>
                     </div>
-                    <LoggingPane />
+                    <LoggingPane log={this.state.log}/>
                     <DataPane />
             </div>
         );

@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
 
-class LoggingPane extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
+const LoggingPane = (props) => {
         return (
             <div className="LoggingPane">
-            logs here
+                {props.log}
             </div>
         );
     }
-}
 
 export default LoggingPane;
