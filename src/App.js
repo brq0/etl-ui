@@ -15,18 +15,6 @@ class App extends Component {
         this.state = {};
     }
 
-    handleExtract(e){
-      console.log("extract")
-    }
-
-    handleTransfer(e){
-      console.log("transfer")
-    }
-
-    handleLoad(e){
-      console.log("load")
-    }
-
     handleEntireEtlProcess(e){
       console.log("etl")
     }
