@@ -39,11 +39,23 @@ class App extends Component {
             <div className="App">
                     <Header />
                     <EtlButtonsPane handleLogging={this.handleLogging}/>
-                    <div>
-                        <Button name="ETL" onClick={this.handleEntireEtlProcess}/>
-                        <RSButton color="success">ETL</RSButton>{' '}
-                        <Button name="LOAD DATA FROM DATABASE" onClick={this.loadDataFromDb}/>
+                    <div className="container">
+                        <div className="row mt-5 mb-5">
+                            <div className="offset-2 offset-md-3"></div>
+                                <RSButton className="col-8 col-md-6" color="success" onClick={this.handleEntireEtlProcess}>ETL</RSButton>{''}
+                            <div className="offset-2 offset-md-3"></div>
+                        </div>
+
+                        <div className="row mt-5 mb-5">
+                        <div className="offset-2 offset-md-3"></div>
+                            <RSButton className="col-4 col-md-3" color="success" onClick={this.loadDataFromDb}>LOAD DATA <br /> FROM DATABASE</RSButton>{''}
+                            <RSButton className="col-4 col-md-3" color="success" onClick={this.loadDataFromDb}>Restart Database</RSButton>{''}
+                            
+                        <div className="offset-2 offset-md-3"></div>
+                        </div>
+                    
                     </div>
+                    
                     <LoggingPane log={this.state.log}/>
                     <DataPane />
             </div>
