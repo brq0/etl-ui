@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import Header from './Header.js'
+import EtlButtonsPane from './EtlButtonsPane.js'
 import Button from './Button.js'
+import LoggingPane from './LoggingPane.js'
+import DataPane from './DataPane.js'
 import './App.css';
 import $ from 'jquery';
+import * as CONF from './conf/Conf.js'
 
 class App extends Component {
     constructor(props) {
@@ -10,30 +15,37 @@ class App extends Component {
         this.state = {};
     }
 
-    handleButtonClick(e){
-      console.log("log")
+    handleExtract(e){
+      console.log("extract")
+    }
+
+    handleTransfer(e){
+      console.log("transfer")
+    }
+
+    handleLoad(e){
+      console.log("load")
+    }
+
+    handleEntireEtlProcess(e){
+      console.log("etl")
+    }
+
+    loadDataFromDb(e){
+      console.log("load data from db")
     }
 
     render() {
         return (
             <div className="App">
-                    <div id="logo">
-                    </div>
-                    <div id="etlButtons" >
-                        <Button name="E" onClick={this.handleButtonClick}/>
-                        <Button name="T" />
-                        <Button name="L" />
-                    </div>
+                    <Header />
+                    <EtlButtonsPane />
                     <div>
-                        <Button name="ETL" />
-                        <Button name="LOAD DATA FROM DATABASE" />
+                        <Button name="ETL" onClick={this.handleEntireEtlProcess}/>
+                        <Button name="LOAD DATA FROM DATABASE" onClick={this.loadDataFromDb}/>
                     </div>
-                    <div id="logging">
-
-                    </div>
-                    <div id="data">
-
-                    </div>
+                    <LoggingPane />
+                    <DataPane />
             </div>
         );
     }
