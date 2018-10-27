@@ -12,11 +12,9 @@ class DataPane extends Component {
         super(props);
 
         this.state = {
-            head: new Array("TestCol1", "TestCol2"),
-            data: new Array(new Array("Test1", "Temp1"), new Array("Test2", "Temp2"))
+            head: ["TestCol1", "TestCol2"],
+            data: [["Test1", "Temp1"], ["Test2", "Temp2"]]
         };
-
-        console.log(this.state.data[0])
     }
 
     render() {

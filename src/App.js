@@ -6,7 +6,6 @@ import {Button as RSButton} from 'reactstrap';
 import LoggingPane from './LoggingPane.js'
 import DataPane from './DataPane.js'
 import './App.css';
-import * as CONF from './conf/Conf.js'
 
 class App extends Component {
     constructor(props) {

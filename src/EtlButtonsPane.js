@@ -11,30 +11,29 @@ class EtlButtonsPane extends Component {
         this.handleExtract = this.handleExtract.bind(this);
         this.handleTransfer = this.handleTransfer.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
+        this.sendRequest = this.sendRequest.bind(this);
     }
 
     handleExtract(e){
        console.log("extract")
-       axios.get(`${CONF.PAGE}/extract`)
-             .then(({data}) => {
-                  {this.props.handleLogging(data)}
-       });
+       this.sendRequest("extract")
     }
 
     handleTransfer(e){
       console.log("transfer")
-      axios.get(`${CONF.PAGE}/transfer`)
-            .then(({data}) => {
-                 {this.props.handleLogging(data)}
-      });
+      this.sendRequest("transfer")
     }
 
     handleLoad(e){
       console.log("load")
-      axios.get(`${CONF.PAGE}/load`)
-            .then(({data}) => {
-                  {this.props.handleLogging(data)}
-      });
+      this.sendRequest("load")
+    }
+
+    sendRequest(command){
+     axios.get(`${CONF.PAGE}/${command}`)
+          .then(({data}) => {
+                      {this.props.handleLogging(data)}
+     });
     }
 
     render() {

@@ -1,16 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
-Collapse,
 Navbar,
-NavbarToggler,
-NavbarBrand,
-Nav,
-NavItem,
-NavLink,
-UncontrolledDropdown,
-DropdownToggle,
-DropdownMenu,
-DropdownItem } from 'reactstrap';
+NavbarBrand} from 'reactstrap';
 
 class Header extends React.Component {  
         constructor(props) {
