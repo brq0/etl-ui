@@ -40,8 +40,8 @@ class EtlButtonsPane extends Component {
     render() {
         return (
             <div className="EtlButtonsPane">
-                <div className="mt-5">
-                  <RSButton className="col-1 cmt" outline color="warning" onClick={this.handleExtract}>E</RSButton>
+               <div className="col-md-9 mt-5 col-centered">
+                  <RSButton className="col-1" outline color="warning" onClick={this.handleExtract}>E</RSButton>
                   <RSButton className="col-1 ml-4" outline color="danger" onClick={this.handleTransfer}>T</RSButton>
                   <RSButton className="col-1 ml-4" outline color="info" onClick={this.handleLoad}>L</RSButton>
                 </div>
