@@ -4,3 +4,7 @@ body {
   font-family: sans-serif;
   background-color: rgb(255, 255, 255) !important;
 }
+
+.header{
+  background-color: #010f61; 
+}
