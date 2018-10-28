@@ -31,6 +31,9 @@ class DataPane extends Component {
        link.setAttribute('download', 'record.txt');
        document.body.appendChild(link);
        link.click();
+     })
+     .catch(error => {
+            if(error.message === 'Network Error') alert("Run etlapp")
      });
     }
 

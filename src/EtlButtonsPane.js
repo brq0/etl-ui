@@ -33,7 +33,10 @@ class EtlButtonsPane extends Component {
     sendRequest(command){
      axios.get(`${CONF.PAGE}/${command}`)
           .then(({data}) => {
-                      {this.props.handleLogging(data)}
+           {this.props.handleLogging(data)}
+     })
+     .catch(error => {
+            if(error.message === 'Network Error') alert("Run etlapp")
      });
     }
 
