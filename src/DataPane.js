@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import axios from "axios/index";
 import DataTable from 'datatables.net'
+import * as CONF from './conf/Conf.js'
 import './css/dataTables.css'
 
 $(document).ready(function() {
@@ -12,9 +14,24 @@ class DataPane extends Component {
         super(props);
 
         this.state = {
-            head: ["TestCol1", "TestCol2"],
+            head: ["TestCol1", "TestCol2", "Action"],
             data: [["Test1", "Temp1"], ["Test2", "Temp2"]]
         };
+    }
+
+    downloadTxt(id){
+     axios({
+       url: `${CONF.PAGE}/txt?rowId=${id}`,
+       method: 'GET',
+       responseType: 'blob',
+     }).then((response) => {
+       const url = window.URL.createObjectURL(new Blob([response.data]));
+       const link = document.createElement('a');
+       link.href = url;
+       link.setAttribute('download', 'record.txt');
+       document.body.appendChild(link);
+       link.click();
+     });
     }
 
     render() {
@@ -30,6 +47,7 @@ class DataPane extends Component {
                             {this.state.data.map((item, i) =>
                                 <tr key={i}>
                                     {this.state.data[i].map((saItem, j) => <th key={j}>{saItem}</th>)}
+                                    <th><button onClick={() => this.downloadTxt(i)}> > </button></th>
                                 </tr>
                             )}
                             </tbody>
