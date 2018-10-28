@@ -21,7 +21,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className="Header">
-                <Navbar color="success" dark>
+                <Navbar color="info" dark>
                     <div className="container">
                     <NavbarBrand className="ml-auto mr-auto" href="/">Uniwersytet Ekonomiczny w Krakowie ETL-app</NavbarBrand>
                     </div>
