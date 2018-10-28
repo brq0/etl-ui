@@ -20,22 +20,40 @@ class DataPane extends Component {
     }
 
     downloadTxt(id){
-     axios({
-       url: `${CONF.PAGE}/txt?rowId=${id}`,
-       method: 'GET',
-       responseType: 'blob',
-     }).then((response) => {
-       const url = window.URL.createObjectURL(new Blob([response.data]));
-       const link = document.createElement('a');
-       link.href = url;
-       link.setAttribute('download', 'record.txt');
-       document.body.appendChild(link);
-       link.click();
-     })
-     .catch(error => {
-            if(error.message === 'Network Error') alert("Run etlapp")
-     });
+         axios({
+           url: `${CONF.PAGE}/generateTxt?rowId=${id}`,
+           method: 'GET',
+           responseType: 'blob',
+         }).then((response) => {
+           const url = window.URL.createObjectURL(new Blob([response.data]));
+           const link = document.createElement('a');
+           link.href = url;
+           link.setAttribute('download', 'record.txt');
+           document.body.appendChild(link);
+           link.click();
+         })
+         .catch(error => {
+                if(error.message === 'Network Error') alert("Run etlapp")
+         });
     }
+
+    downloadCsv(){
+          axios({
+            url: `${CONF.PAGE}/generateCsv`,
+            method: 'GET',
+            responseType: 'blob',
+          }).then((response) => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'records.csv');
+            document.body.appendChild(link);
+            link.click();
+          })
+          .catch(error => {
+                 if(error.message === 'Network Error') alert("Run etlapp")
+          });
+     }
 
     render() {
         return (
@@ -55,6 +73,7 @@ class DataPane extends Component {
                             )}
                             </tbody>
                         </table>
+                        <button onClick={this.downloadCsv}>Generate CSV </button>
             </div>
         );
     }
