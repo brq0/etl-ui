@@ -5,7 +5,7 @@ import Button from './Button.js'
 import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
 import LoggingPane from './LoggingPane.js'
-import DataPane2 from './DataPane2.js'
+import DataPane from './DataPane.js'
 import * as CONF from './conf/Conf.js'
 import './App.css';
 
@@ -15,13 +15,8 @@ class App extends Component {
 
         this.state = {
             log: 'Logging',
-            dbData: [{
-                productId: "lol",
-                productCategory: "lel",
-                productName: "ha",
-                productUrlImage: "eeo",
-                productPrice: "22"
-            }]
+            key: 0,
+            dbData: []
         };
 
          this.handleLogging = this.handleLogging.bind(this);
@@ -39,12 +34,17 @@ class App extends Component {
     }
 
     loadDataFromDb(){
-     axios.get(`${CONF.PAGE}/getData`)
-          .then(({data}) => {
-              this.setState({
-                        dbData: data
-                      })
-     })
+         axios.get(`${CONF.PAGE}/getData`)
+              .then(({data}) => {
+              console.log(this.state.key)
+                  this.setState({
+                            dbData: data,
+                            key: this.state.key+1
+                          })
+         })
+         .catch(error => {
+                     if(error.message === 'Network Error') alert("Run etlapp")
+         });
     }
 
     render() {
@@ -64,7 +64,7 @@ class App extends Component {
                     <hr/>
                     <LoggingPane log={this.state.log}/>
                     <hr/>
-                    <DataPane2 data={this.state.dbData}/>
+                    <DataPane data={this.state.dbData} key={this.state.key}/>
             </div>
         );
     }

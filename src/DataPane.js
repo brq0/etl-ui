@@ -5,10 +5,6 @@ import DataTable from 'datatables.net'
 import * as CONF from './conf/Conf.js'
 import './css/dataTables.css'
 
-$(document).ready(function() {
-    $('#dbTable').DataTable();
-} )
-
 class DataPane extends Component {
     constructor(props) {
         super(props);
@@ -16,14 +12,26 @@ class DataPane extends Component {
         console.log(props.data)
 
         this.state = {
-            head: ["Img", "Name", "Category", "Price", "Ac"],
+            head: ["", "Name", "Category", "Price", ""],
             data: props.data
         };
     }
 
+    componentDidMount(){
+        $('#dbTable').DataTable({
+            "columns": [
+                { "orderable": false },
+                null,
+                null,
+                null,
+                { "orderable": false }
+              ]
+        });
+    }
+
     downloadTxt(id){
          axios({
-           url: `${CONF.PAGE}/generateTxt?rowId=${id}`,
+           url: `${CONF.PAGE}/generateTxt?id=${id}`,
            method: 'GET',
            responseType: 'blob',
          }).then((response) => {
@@ -67,12 +75,17 @@ class DataPane extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                            {this.state.data.map((item, i) =>
-                                <tr key={i}>
-                                    {this.state.data[i].map((saItem, j) => <th key={j}>{saItem}</th>)}
-                                    <th><button onClick={() => this.downloadTxt(i)}> > </button></th>
-                                </tr>
-                            )}
+                            {this.state.data.map((item) => {
+                                return(
+                                            <tr key={item.productId}>
+                                             <th><img src={item.productImageUrl} className="h-50"/></th>
+                                             <th>{item.productName}</th>
+                                             <th>{item.productCategory}</th>
+                                             <th>{item.productPrice}</th>
+                                             <th><button onClick={() => this.downloadTxt(item.productId)}> > </button></th>
+                                            </tr>
+                                            );
+                            })}
                             </tbody>
                         </table>
                         <button onClick={this.downloadCsv}>Generate CSV </button>
