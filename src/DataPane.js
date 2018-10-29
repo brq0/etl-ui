@@ -68,12 +68,12 @@ class DataPane extends Component {
                             {this.state.data.map((item, i) =>
                                 <tr key={i}>
                                     {this.state.data[i].map((saItem, j) => <th key={j}>{saItem}</th>)}
-                                    <th><button onClick={() => this.downloadTxt(i)}> > </button></th>
+                                    <th><button className="buttonDownload" onClick={() => this.downloadTxt(i)}> Download </button></th>
                                 </tr>
                             )}
                             </tbody>
                         </table>
-                        <button onClick={this.downloadCsv}>Generate CSV </button>
+                        <button  class="buttonDownload" onClick={this.downloadCsv}>Generate CSV </button>
             </div>
         );
     }
