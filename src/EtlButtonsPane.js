@@ -10,7 +10,7 @@ class EtlButtonsPane extends Component {
         super(props);
 
         this.handleExtract = this.handleExtract.bind(this);
-        this.handleTransfer = this.handleTransfer.bind(this);
+        this.handleTransform = this.handleTransform.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
         this.sendRequest = this.sendRequest.bind(this);
     }
@@ -20,9 +20,9 @@ class EtlButtonsPane extends Component {
        this.sendRequest("extract")
     }
 
-    handleTransfer(e){
-      console.log("transfer")
-      this.sendRequest("transfer")
+    handleTransform(e){
+      console.log("transform")
+      this.sendRequest("transform")
     }
 
     handleLoad(e){
@@ -45,7 +45,7 @@ class EtlButtonsPane extends Component {
             <div className="EtlButtonsPane">
                <div className="col-md-9 mt-5 col-centered">
                   <RSButton className="col-1" outline color="warning" onClick={this.handleExtract}>E</RSButton>
-                  <RSButton className="col-1 ml-4" outline color="danger" onClick={this.handleTransfer}>T</RSButton>
+                  <RSButton className="col-1 ml-4" outline color="danger" onClick={this.handleTransform}>T</RSButton>
                   <RSButton className="col-1 ml-4" outline color="info" onClick={this.handleLoad}>L</RSButton>
                 </div>
             </div>

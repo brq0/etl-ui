@@ -1,1 +1,1 @@
-export const PAGE = "localhost:8080";
+export const PAGE = 'http://localhost:8080/'

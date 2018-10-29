@@ -13,9 +13,11 @@ class DataPane extends Component {
     constructor(props) {
         super(props);
 
+        console.log(props.data)
+
         this.state = {
-            head: ["TestCol1", "TestCol2", "Action"],
-            data: [["Test1", "Temp1"], ["Test2", "Temp2"]]
+            head: ["Img", "Name", "Category", "Price", "Ac"],
+            data: props.data
         };
     }
 

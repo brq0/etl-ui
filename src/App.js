@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import Header from './Header.js'
 import EtlButtonsPane from './EtlButtonsPane.js'
 import Button from './Button.js'
+import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
 import LoggingPane from './LoggingPane.js'
-import DataPane from './DataPane.js'
+import DataPane2 from './DataPane2.js'
+import * as CONF from './conf/Conf.js'
 import './App.css';
 
 class App extends Component {
@@ -12,10 +14,18 @@ class App extends Component {
         super(props);
 
         this.state = {
-            log: 'Logging'
+            log: 'Logging',
+            dbData: [{
+                productId: "lol",
+                productCategory: "lel",
+                productName: "ha",
+                productUrlImage: "eeo",
+                productPrice: "22"
+            }]
         };
 
          this.handleLogging = this.handleLogging.bind(this);
+         this.loadDataFromDb = this.loadDataFromDb.bind(this);
     }
 
     handleLogging(e){
@@ -28,8 +38,13 @@ class App extends Component {
       console.log("etl")
     }
 
-    loadDataFromDb(e){
-      console.log("load data from db")
+    loadDataFromDb(){
+     axios.get(`${CONF.PAGE}/getData`)
+          .then(({data}) => {
+              this.setState({
+                        dbData: data
+                      })
+     })
     }
 
     render() {
@@ -49,7 +64,7 @@ class App extends Component {
                     <hr/>
                     <LoggingPane log={this.state.log}/>
                     <hr/>
-                    <DataPane />
+                    <DataPane2 data={this.state.dbData}/>
             </div>
         );
     }
