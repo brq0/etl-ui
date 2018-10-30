@@ -36,10 +36,22 @@ class App extends Component {
     loadDataFromDb(){
          axios.get(`${CONF.PAGE}/getData`)
               .then(({data}) => {
-              console.log(this.state.key)
                   this.setState({
                             dbData: data,
                             key: this.state.key+1
+                          })
+         })
+         .catch(error => {
+                     if(error.message === 'Network Error') alert("Run etlapp")
+         });
+    }
+
+    restartDb(){
+        axios.get(`${CONF.PAGE}/restartDb`)
+              .then(({data}) => {
+                  this.setState({
+                            dbData: data,
+                            key: 0
                           })
          })
          .catch(error => {
@@ -58,7 +70,7 @@ class App extends Component {
                         </div>
                         <div className="mb-5 col-centered">
                             <RSButton className="col-2" color="success" onClick={this.loadDataFromDb}>Load Data</RSButton>
-                            <RSButton className="col-1 ml-1" color="danger" onClick={this.loadDataFromDb}>Restart DB</RSButton>
+                            <RSButton className="col-1 ml-1" color="danger" onClick={this.restartDb}>Restart DB</RSButton>
                         </div>
                     </div>
                     <hr/>
