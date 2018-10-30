@@ -21,6 +21,7 @@ class App extends Component {
 
          this.handleLogging = this.handleLogging.bind(this);
          this.loadDataFromDb = this.loadDataFromDb.bind(this);
+         this.restartDb = this.restartDb.bind(this);
     }
 
     handleLogging(e){
@@ -50,13 +51,15 @@ class App extends Component {
         axios.get(`${CONF.PAGE}/restartDb`)
               .then(({data}) => {
                   this.setState({
-                            dbData: data,
+                            dbData: [],
                             key: 0
                           })
          })
          .catch(error => {
                      if(error.message === 'Network Error') alert("Run etlapp")
          });
+
+         this.loadDataFromDb()
     }
 
     render() {
