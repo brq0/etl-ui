@@ -16,9 +16,12 @@
 .buttonDownload {
 	display: inline-block;
 	position: relative;
-	padding: 13px 22px;
-  
-	background-color: #4CC713;
+	padding: 15px 22px;
+	border-radius: 90px;
+	border: 1px solid white;
+	background-color: #1991da;
+	cursor: pointer;
+
 	color: white !important;
   
 	font-family: sans-serif;
@@ -29,6 +32,7 @@
 
 .buttonDownload:hover {
 	background-color: #333;
+    border: 1px solid white;
 	color: white !important;
 }
 
@@ -60,7 +64,8 @@
 	border-width: 4px 4px 0 4px;
 	border-color: transparent;
 	border-top-color: inherit;
-	
+
+
 	animation: downloadArrow 2s linear infinite;
 	animation-play-state: paused;
 }
@@ -93,15 +98,20 @@
 .generate {
 	display: inline-block;
 	position: relative;
-	padding: 13px 22px;
-  
-	background-color: #4CC713;
+
 	color: white !important;
-  
+
 	font-family: sans-serif;
 	text-decoration: none;
 	font-size: 0.9em;
 	text-align: center;
+
+    background-color: #1991da;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .generate:hover {

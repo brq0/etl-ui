@@ -80,13 +80,13 @@ class DataPane extends Component {
                                              <th>{item.productName}</th>
                                              <th>{item.productCategory}</th>
                                              <th>{item.productPrice}</th>
-                                             <th><button onClick={() => this.downloadTxt(item.productId)}> > </button></th>
+                                             <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.productId)}> </button></th>
                                             </tr>
                                             );
                             })}
                             </tbody>
                         </table>
-                        <button  className="generate" onClick={this.downloadCsv}>Generate CSV </button>
+                        <button className="generate col-2" onClick={this.downloadCsv}>Generate CSV </button>
             </div>
         );
     }
