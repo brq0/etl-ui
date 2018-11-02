@@ -8,6 +8,10 @@ import './App.css';
 import './css/popUp.css'
 
 
+let extractInt = null;
+let transformInt = null;
+let loadInt = null;
+
 class EtlButtonsPane extends Component {
     constructor(props) {
         super(props);
@@ -16,60 +20,21 @@ class EtlButtonsPane extends Component {
         this.handleTransform = this.handleTransform.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
         this.sendRequest = this.sendRequest.bind(this);
-
-        this.state = {
-            log: "nothing"
-        };
     }
 
     handleExtract(e){
        console.log("extract")
-       var k = setInterval(() => {
-
-            this.sendRequest("extract")
-
-             if(this.state.log === "Done"){
-                   console.log("stop")
-                   return;
-      }
-//         if(this.state.log !== "Data extracted successfully."){
-//             this.sendRequest("extract")
-//         }else{
-//                      clearInterval();
-//                      return;
-//                   }
-       }, 300);
-       if(this.state.log === "Done"){
-       console.log("stop")
-                       clearInterval(k);
-                  }
+       extractInt = setInterval(() => {this.sendRequest("extract")}, 300);
     }
 
     handleTransform(e){
       console.log("transform")
-      setInterval(() => {
-
-           this.sendRequest("transform")
-
-           if(this.state.log === "Done"){
-                return;
-           }
-//         if(this.state.log !== "Data transformed successfully."){
-//             this.sendRequest("transform")
-//         }else{
-//            clearInterval();
-//            return;
-//         }
-       }, 300);
+      transformInt = setInterval(() => {this.sendRequest("transform")}, 300);
     }
 
     handleLoad(e){
       console.log("load")
-      setInterval(() => {
-         if(this.state.log !== "done"){
-             this.sendRequest("load")
-         }else return
-       }, 300);
+      loadInt = setInterval(() => {this.sendRequest("load")}, 300);
     }
 
     sendRequest(command){
@@ -81,16 +46,13 @@ class EtlButtonsPane extends Component {
                 case "Data is being transformed..":
                 case "Data is being loaded..":
                      $("#popup").show();
-                     this.setState({
-                        log: "running"
-                     })
                      break;
 
                 default:
                      $("#popup").hide();
-                     this.setState({
-                        log: "Done"
-                     })
+                     clearInterval(extractInt);
+                     clearInterval(transformInt);
+                     clearInterval(loadInt);
                      break;
             }
 
