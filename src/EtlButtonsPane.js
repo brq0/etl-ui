@@ -51,6 +51,7 @@ class EtlButtonsPane extends Component {
                 case "Data is being extracted..":
                 case "Data is being transformed..":
                 case "Data is being loaded..":
+                case "Full ETL Process is running.. Please wait..":
                      $("#popup").show();
                      break;
 
