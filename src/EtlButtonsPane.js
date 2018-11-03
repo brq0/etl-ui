@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from "axios/index";
-import Button from './Button.js'
 import {Button as RSButton} from 'reactstrap';
 import $ from 'jquery';
 import * as CONF from './conf/Conf.js';
@@ -11,6 +10,7 @@ import './css/popUp.css'
 let extractInt = null;
 let transformInt = null;
 let loadInt = null;
+let etlInt = null;
 
 class EtlButtonsPane extends Component {
     constructor(props) {
@@ -20,21 +20,27 @@ class EtlButtonsPane extends Component {
         this.handleTransform = this.handleTransform.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
         this.sendRequest = this.sendRequest.bind(this);
+        this.handleEntireEtlProcess = this.handleEntireEtlProcess.bind(this);
     }
 
     handleExtract(e){
-       console.log("extract")
+       console.log("extract");
        extractInt = setInterval(() => {this.sendRequest("extract")}, 300);
     }
 
     handleTransform(e){
-      console.log("transform")
+      console.log("transform");
       transformInt = setInterval(() => {this.sendRequest("transform")}, 300);
     }
 
     handleLoad(e){
-      console.log("load")
+      console.log("load");
       loadInt = setInterval(() => {this.sendRequest("load")}, 300);
+    }
+
+    handleEntireEtlProcess(e){
+        console.log("etl");
+        etlInt = setInterval(() => {this.sendRequest("etl")}, 300);
     }
 
     sendRequest(command){
@@ -53,6 +59,7 @@ class EtlButtonsPane extends Component {
                      clearInterval(extractInt);
                      clearInterval(transformInt);
                      clearInterval(loadInt);
+                     clearInterval(etlInt)
                      break;
             }
 
@@ -69,8 +76,13 @@ class EtlButtonsPane extends Component {
                <div className="col-md-9 mt-5 col-centered">
                   <RSButton className="col-1" outline color="warning" onClick={this.handleExtract}>E</RSButton>
                   <RSButton className="col-1 ml-4" outline color="danger" onClick={this.handleTransform}>T</RSButton>
-                  <RSButton className="col-1 ml-4" outline color="info" onClick={this.handleLoad}>L</RSButton>
+                  <RSButton on className="col-1 ml-4" outline color="info" onClick={this.handleLoad}>L</RSButton>
+
+               </div>
+                <div className="mt-5 mb-3 col-centered">
+                    <RSButton className="col-3" color="primary" onClick={this.handleEntireEtlProcess}>ETL</RSButton>
                 </div>
+
 
                 <div id="popup" className="actionWindow">
                     <div className="actionWindow-content">

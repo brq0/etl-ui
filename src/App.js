@@ -8,6 +8,7 @@ import LoggingPane from './LoggingPane.js'
 import DataPane from './DataPane.js'
 import * as CONF from './conf/Conf.js'
 import './App.css';
+import $ from "jquery";
 
 class App extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
             dbData: []
         };
 
+         this.handleEntireEtlProcess = this.handleEntireEtlProcess.bind(this);
          this.handleLogging = this.handleLogging.bind(this);
          this.loadDataFromDb = this.loadDataFromDb.bind(this);
          this.restartDb = this.restartDb.bind(this);
@@ -31,7 +33,8 @@ class App extends Component {
     }
 
     handleEntireEtlProcess(e){
-      console.log("etl")
+      console.log("etl");
+        // etlInt = setInterval(() => {this.sendRequest("etl")}, 300);
     }
 
     loadDataFromDb(){
@@ -61,6 +64,8 @@ class App extends Component {
 
          this.loadDataFromDb()
     }
+
+
 
     render() {
         return (
