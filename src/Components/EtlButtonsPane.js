@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
 import $ from 'jquery';
-import * as CONF from './conf/Conf.js';
-import './App.css';
+import * as CONF from '../conf/Conf.js';
+import '../css/App.css';
 import './css/popUp.css';
 
 

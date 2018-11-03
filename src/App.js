@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Header from './Header.js';
-import EtlButtonsPane from './EtlButtonsPane.js';
+import Header from './Components/Header.js';
+import EtlButtonsPane from './Components/EtlButtonsPane.js';
 
 import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
-import LoggingPane from './LoggingPane.js';
-import DataPane from './DataPane.js';
+import LoggingPane from './Components/LoggingPane.js';
+import DataPane from './Components/DataPane.js';
 import * as CONF from './conf/Conf.js';
-import './App.css';
+import './css/App.css';
 
 
 class App extends Component {
