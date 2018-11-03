@@ -10,7 +10,7 @@ class DataPane extends Component {
         super(props);
 
         this.state = {
-            head: ["", "Name", "Category", "Price", ""],
+            head: ["", "Name", "Category", "Price", "Position",  ""],
             data: props.data
         };
     }
@@ -19,6 +19,7 @@ class DataPane extends Component {
         $('#dbTable').DataTable({
             "columns": [
                 { "orderable": false },
+                null,
                 null,
                 null,
                 null,
@@ -66,27 +67,28 @@ class DataPane extends Component {
     render() {
         return (
             <div className="DataPane ml-5 mr-5">
-                    <table id="dbTable"className="cell-border compact">
-                            <thead>
-                                <tr>
-                                    {this.state.head.map((item, i) => <th key={i}>{item}</th>)}
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {this.state.data.map((item) => {
-                                return(
-                                            <tr key={item.productId}>
-                                             <th><img src={item.productImageUrl} className="h-50"/></th>
-                                             <th>{item.productName}</th>
-                                             <th>{item.productCategory}</th>
-                                             <th>{item.productPrice}</th>
-                                             <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.productId)}> </button></th>
-                                            </tr>
-                                            );
-                            })}
-                            </tbody>
-                        </table>
-                        <button className="generate col-2" onClick={this.downloadCsv}>Generate CSV </button>
+               <table id="dbTable"className="cell-border compact">
+                  <thead>
+                     <tr>
+                       {this.state.head.map((item, i) => <th key={i}>{item}</th>)}
+                     </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.data.map((item) => {
+                       return(
+                         <tr key={item.productId}>
+                            <th><img src={item.productImageUrl} className="h-50"/></th>
+                            <th>{item.productName}</th>
+                            <th>{item.productCategory}</th>
+                            <th>{item.productPrice}</th>
+                            <th>{item.position}</th>
+                            <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.productId)}> </button></th>
+                         </tr>
+                        );
+                    })}
+                  </tbody>
+               </table>
+               <button className="generate col-2" onClick={this.downloadCsv}>Generate CSV </button>
             </div>
         );
     }
