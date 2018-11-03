@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Header from './Header.js'
 import EtlButtonsPane from './EtlButtonsPane.js'
-import Button from './Button.js'
+
 import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
 import LoggingPane from './LoggingPane.js'
 import DataPane from './DataPane.js'
 import * as CONF from './conf/Conf.js'
 import './App.css';
-import $ from "jquery";
+
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +20,6 @@ class App extends Component {
             dbData: []
         };
 
-         this.handleEntireEtlProcess = this.handleEntireEtlProcess.bind(this);
          this.handleLogging = this.handleLogging.bind(this);
          this.loadDataFromDb = this.loadDataFromDb.bind(this);
          this.restartDb = this.restartDb.bind(this);
@@ -30,11 +29,6 @@ class App extends Component {
         this.setState({
             log: e
         })
-    }
-
-    handleEntireEtlProcess(e){
-      console.log("etl");
-        // etlInt = setInterval(() => {this.sendRequest("etl")}, 300);
     }
 
     loadDataFromDb(){
@@ -73,9 +67,6 @@ class App extends Component {
                     <Header />
                     <EtlButtonsPane handleLogging={this.handleLogging}/>
                     <div className="ml-5 mr-5">
-                        <div className="mt-5 mb-3 col-centered">
-                                <RSButton className="col-3" color="primary" onClick={this.handleEntireEtlProcess}>ETL</RSButton>
-                        </div>
                         <div className="mb-5 col-centered">
                             <RSButton className="col-2" color="success" onClick={this.loadDataFromDb}>Load Data</RSButton>
                             <RSButton className="col-1 ml-1" color="danger" onClick={this.restartDb}>Restart DB</RSButton>
