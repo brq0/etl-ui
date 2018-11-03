@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import Header from './Header.js'
-import EtlButtonsPane from './EtlButtonsPane.js'
+import Header from './Header.js';
+import EtlButtonsPane from './EtlButtonsPane.js';
 
 import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
-import LoggingPane from './LoggingPane.js'
-import DataPane from './DataPane.js'
-import * as CONF from './conf/Conf.js'
+import LoggingPane from './LoggingPane.js';
+import DataPane from './DataPane.js';
+import * as CONF from './conf/Conf.js';
 import './App.css';
 
 
@@ -28,7 +28,7 @@ class App extends Component {
     handleLogging(e){
         this.setState({
             log: e
-        })
+        });
     }
 
     loadDataFromDb(){
@@ -37,10 +37,10 @@ class App extends Component {
                   this.setState({
                             dbData: data,
                             key: this.state.key+1
-                          })
+                          });
          })
          .catch(error => {
-                     if(error.message === 'Network Error') alert("Run etlapp")
+                     if(error.message === 'Network Error') alert("Run etlapp");
          });
     }
 
@@ -50,13 +50,13 @@ class App extends Component {
                   this.setState({
                             dbData: [],
                             key: 0
-                          })
+                          });
          })
          .catch(error => {
-                     if(error.message === 'Network Error') alert("Run etlapp")
+                     if(error.message === 'Network Error') alert("Run etlapp");
          });
 
-         this.loadDataFromDb()
+         this.loadDataFromDb();
     }
 
 

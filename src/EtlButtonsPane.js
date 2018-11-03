@@ -4,7 +4,7 @@ import {Button as RSButton} from 'reactstrap';
 import $ from 'jquery';
 import * as CONF from './conf/Conf.js';
 import './App.css';
-import './css/popUp.css'
+import './css/popUp.css';
 
 
 let extractInt = null;
@@ -44,7 +44,7 @@ class EtlButtonsPane extends Component {
     }
 
     sendRequest(command){
-    console.log(command)
+    console.log(command);
      axios.get(`${CONF.PAGE}/${command}`)
           .then(({data}) => {
             switch(data){
@@ -60,14 +60,14 @@ class EtlButtonsPane extends Component {
                      clearInterval(extractInt);
                      clearInterval(transformInt);
                      clearInterval(loadInt);
-                     clearInterval(etlInt)
+                     clearInterval(etlInt);
                      break;
             }
 
            {this.props.handleLogging(data)}
      })
      .catch(error => {
-            if(error.message === 'Network Error') alert("Run etlapp")
+            if(error.message === 'Network Error') alert("Run etlapp");
      });
     }
 
