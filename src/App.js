@@ -1,21 +1,19 @@
 import React, {Component} from 'react';
-import Header from './Components/Header.js';
-import EtlButtonsPane from './Components/EtlButtonsPane.js';
-
 import axios from "axios/index";
 import {Button as RSButton} from 'reactstrap';
-import LoggingPane from './Components/LoggingPane.js';
-import DataPane from './Components/DataPane.js';
-import * as CONF from './conf/Conf.js';
 import './css/App.css';
-
+import Header from './components/Header.js';
+import EtlButtonsPane from './components/EtlButtonsPane.js';
+import LoggingPane from './components/LoggingPane.js';
+import DataPane from './components/DataPane.js';
+import * as CONF from './conf/Conf.js';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            log: 'Logging',
+            log: 'Click something please',
             key: 0,
             dbData: []
         };
@@ -34,9 +32,13 @@ class App extends Component {
     loadDataFromDb(){
          axios.get(`${CONF.PAGE}/getData`)
               .then(({data}) => {
+                  var lg = data.length > 0 ? "Successfully got data from database." :
+                   "No data in database. Execute E-T-L process in the first place.";
+
                   this.setState({
                             dbData: data,
-                            key: this.state.key+1
+                            key: this.state.key+1,
+                            log: lg
                           });
          })
          .catch(error => {
@@ -45,21 +47,19 @@ class App extends Component {
     }
 
     restartDb(){
+        console.log("restart")
         axios.get(`${CONF.PAGE}/restartDb`)
               .then(({data}) => {
                   this.setState({
                             dbData: [],
+                            log: data,
                             key: 0
                           });
          })
          .catch(error => {
                      if(error.message === 'Network Error') alert("Run etlapp");
          });
-
-         this.loadDataFromDb();
     }
-
-
 
     render() {
         return (
