@@ -4,7 +4,7 @@ import {Button as RSButton} from 'reactstrap';
 import $ from 'jquery';
 import * as CONF from '../conf/Conf.js';
 import '../css/App.css';
-import './css/popUp.css';
+import '../css/popUp.css';
 
 
 let extractInt = null;
