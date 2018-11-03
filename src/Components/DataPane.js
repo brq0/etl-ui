@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import axios from "axios/index";
-import DataTable from 'datatables.net'
-import * as CONF from './conf/Conf.js'
-import './css/dataTables.css'
+import DataTable from 'datatables.net';
+import * as CONF from '../conf/Conf.js'
+import '../css/dataTables.css'
 
 class DataPane extends Component {
     constructor(props) {
