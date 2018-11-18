@@ -25,22 +25,21 @@ class EtlButtonsPane extends Component {
 
     handleExtract(e){
        console.log("extract");
-       extractInt = setInterval(() => {this.sendRequest("extract")}, 300);
+       extractInt = setInterval(() => {this.sendRequest("extract")}, 2100);
     }
-
     handleTransform(e){
       console.log("transform");
-      transformInt = setInterval(() => {this.sendRequest("transform")}, 300);
+      transformInt = setInterval(() => {this.sendRequest("transform")}, 2100);
     }
 
     handleLoad(e){
       console.log("load");
-      loadInt = setInterval(() => {this.sendRequest("load")}, 300);
+      loadInt = setInterval(() => {this.sendRequest("load")}, 2100);
     }
 
     handleEntireEtlProcess(e){
         console.log("etl");
-        etlInt = setInterval(() => {this.sendRequest("etl")}, 300);
+        etlInt = setInterval(() => {this.sendRequest("etl")}, 2100);
     }
 
     sendRequest(command){
@@ -68,6 +67,10 @@ class EtlButtonsPane extends Component {
      })
      .catch(error => {
             if(error.message === 'Network Error') alert("Run etlapp");
+            clearInterval(extractInt);
+            clearInterval(transformInt);
+            clearInterval(loadInt);
+            clearInterval(etlInt);
      });
     }
 
