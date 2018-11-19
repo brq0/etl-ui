@@ -25,21 +25,22 @@ class EtlButtonsPane extends Component {
 
     handleExtract(e){
        console.log("extract");
-       extractInt = setInterval(() => {this.sendRequest("extract")}, 2100);
+       this.sendRequest("extract");
     }
+
     handleTransform(e){
       console.log("transform");
-      transformInt = setInterval(() => {this.sendRequest("transform")}, 2100);
+      this.sendRequest("transform");
     }
 
     handleLoad(e){
       console.log("load");
-      loadInt = setInterval(() => {this.sendRequest("load")}, 2100);
+      this.sendRequest("load");
     }
 
     handleEntireEtlProcess(e){
-        console.log("etl");
-        etlInt = setInterval(() => {this.sendRequest("etl")}, 2100);
+      console.log("etl");
+      this.sendRequest("etl");
     }
 
     sendRequest(command){
@@ -48,9 +49,27 @@ class EtlButtonsPane extends Component {
           .then(({data}) => {
             switch(data){
                 case "Data is being extracted..":
+                    if(extractInt == null){
+                        extractInt = setInterval(() => {this.handleExtract()}, 300);
+                    }
+                    $("#popup").show();
+                    break;
                 case "Data is being transformed..":
+                    if(transformInt == null){
+                        transformInt = setInterval(() => {this.handleTransform()}, 300);
+                    }
+                    $("#popup").show();
+                    break;
                 case "Data is being loaded..":
+                    if(loadInt == null){
+                        loadInt = setInterval(() => {this.handleLoad()}, 300);
+                    }
+                    $("#popup").show();
+                    break;
                 case "Full ETL Process is running.. Please wait..":
+                    if(etlInt == null){
+                        etlInt = setInterval(() => {this.handleEntireEtlProcess()}, 300);
+                    }
                      $("#popup").show();
                      break;
 
@@ -60,6 +79,10 @@ class EtlButtonsPane extends Component {
                      clearInterval(transformInt);
                      clearInterval(loadInt);
                      clearInterval(etlInt);
+                     extractInt = null;
+                     transformInt = null;
+                     loadInt = null;
+                     etlInt = null;
                      break;
             }
 
