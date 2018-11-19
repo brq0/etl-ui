@@ -6,7 +6,6 @@ import * as CONF from '../conf/Conf.js';
 import '../css/App.css';
 import '../css/popUp.css';
 
-
 let extractInt = null;
 let transformInt = null;
 let loadInt = null;
