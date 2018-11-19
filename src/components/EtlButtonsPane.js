@@ -23,27 +23,22 @@ class EtlButtonsPane extends Component {
     }
 
     handleExtract(e){
-       console.log("extract");
        this.sendRequest("extract");
     }
 
     handleTransform(e){
-      console.log("transform");
       this.sendRequest("transform");
     }
 
     handleLoad(e){
-      console.log("load");
       this.sendRequest("load");
     }
 
     handleEntireEtlProcess(e){
-      console.log("etl");
       this.sendRequest("etl");
     }
 
     sendRequest(command){
-    console.log(command);
      axios.get(`${CONF.PAGE}/${command}`)
           .then(({data}) => {
             switch(data){

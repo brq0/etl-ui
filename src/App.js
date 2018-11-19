@@ -47,7 +47,6 @@ class App extends Component {
     }
 
     restartDb(){
-        console.log("restart")
         axios.get(`${CONF.PAGE}/restartDb`)
               .then(({data}) => {
                   this.setState({
