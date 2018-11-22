@@ -26,7 +26,7 @@ class EtlButtonsPane extends Component {
     handleExtract(e){
        this.sendRequest("extract");
     }
-
+    
     handleTransform(e){
       this.sendRequest("transform");
     }
@@ -47,19 +47,19 @@ class EtlButtonsPane extends Component {
                     if(extractInt == null){
                         extractInt = setInterval(() => {this.handleExtract()}, 300);
                     }
-                    $(LoadingPopUp).show();
+                    $("#popup").show();
                     break;
                 case "Data is being transformed..":
                     if(transformInt == null){
                         transformInt = setInterval(() => {this.handleTransform()}, 300);
                     }
-                    $(LoadingPopUp).show();
+                    $("#popup").show();
                     break;
                 case "Data is being loaded..":
                     if(loadInt == null){
                         loadInt = setInterval(() => {this.handleLoad()}, 300);
                     }
-                    $(LoadingPopUp).show();
+                    $("#popup").show();
                     break;
                 case "Full ETL Process is running.. Please wait..":
                     if(etlInt == null){
@@ -69,7 +69,7 @@ class EtlButtonsPane extends Component {
                      break;
 
                 default:
-                     $(LoadingPopUp).hide();
+                     $("#popup").hide();
                      clearInterval(extractInt);
                      clearInterval(transformInt);
                      clearInterval(loadInt);
@@ -107,10 +107,7 @@ class EtlButtonsPane extends Component {
                     <RSButton className="col-3" color="primary" onClick={this.handleEntireEtlProcess}>ETL</RSButton>
                 </div>
                </div>
-
-                <LoadingPopUp />
-                
-
+                <LoadingPopUp id="popup" />
             </div>
         );
     }
