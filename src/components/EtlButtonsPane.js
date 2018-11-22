@@ -5,6 +5,7 @@ import $ from 'jquery';
 import * as CONF from '../conf/Conf.js';
 import '../css/App.css';
 import '../css/popUp.css';
+import LoadingPopUp from './LoadingPopUp';
 
 let extractInt = null;
 let transformInt = null;
@@ -46,19 +47,19 @@ class EtlButtonsPane extends Component {
                     if(extractInt == null){
                         extractInt = setInterval(() => {this.handleExtract()}, 300);
                     }
-                    $("#popup").show();
+                    $(LoadingPopUp).show();
                     break;
                 case "Data is being transformed..":
                     if(transformInt == null){
                         transformInt = setInterval(() => {this.handleTransform()}, 300);
                     }
-                    $("#popup").show();
+                    $(LoadingPopUp).show();
                     break;
                 case "Data is being loaded..":
                     if(loadInt == null){
                         loadInt = setInterval(() => {this.handleLoad()}, 300);
                     }
-                    $("#popup").show();
+                    $(LoadingPopUp).show();
                     break;
                 case "Full ETL Process is running.. Please wait..":
                     if(etlInt == null){
@@ -68,7 +69,7 @@ class EtlButtonsPane extends Component {
                      break;
 
                 default:
-                     $("#popup").hide();
+                     $(LoadingPopUp).hide();
                      clearInterval(extractInt);
                      clearInterval(transformInt);
                      clearInterval(loadInt);
@@ -107,21 +108,8 @@ class EtlButtonsPane extends Component {
                 </div>
                </div>
 
-                <div id="popup" className="actionWindow">
-                    <div className="actionWindow-content">
-                        <div className="actionWindow-body">
-                            <div id="wrapper">
-                               <div className="profile-main-loader">
-                                <div className="loader">
-                                   <svg className="circular-loader"viewBox="25 25 50 50" >
-                                    <circle className="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#70c542" strokeWidth="2" />
-                                   </svg>
-                                 </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <LoadingPopUp />
+                
 
             </div>
         );
