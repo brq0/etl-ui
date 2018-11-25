@@ -5,7 +5,7 @@ import $ from 'jquery';
 import * as CONF from '../conf/Conf.js';
 import '../css/App.css';
 import '../css/popUp.css';
-
+import LoadingPopUp from './LoadingPopUp';
 
 let extractInt = null;
 let transformInt = null;
@@ -24,27 +24,22 @@ class EtlButtonsPane extends Component {
     }
 
     handleExtract(e){
-       console.log("extract");
        this.sendRequest("extract");
     }
-
+    
     handleTransform(e){
-      console.log("transform");
       this.sendRequest("transform");
     }
 
     handleLoad(e){
-      console.log("load");
       this.sendRequest("load");
     }
 
     handleEntireEtlProcess(e){
-      console.log("etl");
       this.sendRequest("etl");
     }
 
     sendRequest(command){
-    console.log(command);
      axios.get(`${CONF.PAGE}/${command}`)
           .then(({data}) => {
             switch(data){
@@ -112,23 +107,7 @@ class EtlButtonsPane extends Component {
                     <RSButton className="col-3" color="primary" onClick={this.handleEntireEtlProcess}>ETL</RSButton>
                 </div>
                </div>
-
-                <div id="popup" className="actionWindow">
-                    <div className="actionWindow-content">
-                        <div className="actionWindow-body">
-                            <div id="wrapper">
-                               <div className="profile-main-loader">
-                                <div className="loader">
-                                   <svg className="circular-loader"viewBox="25 25 50 50" >
-                                    <circle className="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#70c542" strokeWidth="2" />
-                                   </svg>
-                                 </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <LoadingPopUp id="popup" />
             </div>
         );
     }
