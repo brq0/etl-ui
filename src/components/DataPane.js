@@ -11,9 +11,17 @@ class DataPane extends Component {
 
         this.state = {
             head: ["", "Name", "Category", "Price", "Position",  ""],
-            data: props.data
+            data: [{
+                productId: 'elo',
+                productName: 'name',
+                productCategory: 'category',
+                productPrice: '20zl',
+                position: 1,
+                description: 'dede descriptidiej idejdioadjidsj iadnsaidajs iodasjodjas'
+                }]
         };
     }
+
 
     componentDidMount(){
         $('#dbTable').DataTable({
@@ -64,6 +72,11 @@ class DataPane extends Component {
           });
      }
 
+     createDescriptionPopUp(desc){
+            alert(desc);
+            alert('dupa');
+    }
+    
     render() {
         return (
             <div className="DataPane ml-5 mr-5">
@@ -78,7 +91,7 @@ class DataPane extends Component {
                        return(
                          <tr key={item.productId}>
                             <th><img src={item.productImageUrl} className="h-50"/></th>
-                            <th>{item.productName}</th>
+                            <th><button onClick={()=> this.createDescriptionPopUp(item.description)}>{item.productName}</button></th>
                             <th>{item.productCategory}</th>
                             <th>{item.productPrice}</th>
                             <th>{item.position}</th>
