@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import $ from 'jquery';
 import axios from "axios/index";
 import DataTable from 'datatables.net';
-import * as CONF from '../conf/Conf.js'
-import '../css/dataTables.css'
+import * as CONF from '../conf/Conf.js';
+import '../css/dataTables.css';
+import Modal from './ModalPopUp'
 
 class DataPane extends Component {
     constructor(props) {
@@ -18,7 +19,15 @@ class DataPane extends Component {
                 productPrice: '20zl',
                 position: 1,
                 description: 'dede descriptidiej idejdioadjidsj iadnsaidajs iodasjodjas'
-                }]
+                },
+                {
+                    productId: 'elo',
+                    productName: 'name',
+                    productCategory: 'category',
+                    productPrice: '20zl',
+                    position: 1,
+                    description: 'dede descriptidiej idejdioadjidsj iadnsaidajs iodasjodjas'
+                    }]
         };
     }
 
@@ -73,8 +82,7 @@ class DataPane extends Component {
      }
 
      createDescriptionPopUp(desc){
-            alert(desc);
-            alert('dupa');
+            console.log(desc)
     }
     
     render() {
@@ -91,7 +99,7 @@ class DataPane extends Component {
                        return(
                          <tr key={item.productId}>
                             <th><img src={item.productImageUrl} className="h-50"/></th>
-                            <th><button onClick={()=> this.createDescriptionPopUp(item.description)}>{item.productName}</button></th>
+                            <th><button onClick={()=> <Modal ite = {this.props.toggle()}/>}>{item.productName}</button></th>
                             <th>{item.productCategory}</th>
                             <th>{item.productPrice}</th>
                             <th>{item.position}</th>
