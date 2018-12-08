@@ -45,25 +45,25 @@ class EtlButtonsPane extends Component {
             switch(data){
                 case "Data is being extracted..":
                     if(extractInt == null){
-                        extractInt = setInterval(() => {this.handleExtract()}, 300);
+                        extractInt = setInterval(() => {this.handleExtract()}, 500);
                     }
                     $("#popup").show();
                     break;
                 case "Data is being transformed..":
                     if(transformInt == null){
-                        transformInt = setInterval(() => {this.handleTransform()}, 300);
+                        transformInt = setInterval(() => {this.handleTransform()}, 500);
                     }
                     $("#popup").show();
                     break;
                 case "Data is being loaded..":
                     if(loadInt == null){
-                        loadInt = setInterval(() => {this.handleLoad()}, 300);
+                        loadInt = setInterval(() => {this.handleLoad()}, 500);
                     }
                     $("#popup").show();
                     break;
                 case "Full ETL Process is running.. Please wait..":
                     if(etlInt == null){
-                        etlInt = setInterval(() => {this.handleEntireEtlProcess()}, 300);
+                        etlInt = setInterval(() => {this.handleEntireEtlProcess()}, 500);
                     }
                      $("#popup").show();
                      break;

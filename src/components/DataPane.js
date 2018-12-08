@@ -10,7 +10,7 @@ class DataPane extends Component {
         super(props);
 
         this.state = {
-            head: ["", "Name", "Category", "Price", "Position", "Producer", "Release Date", "Pegi",  ""],
+            head: ["", "Name", "Category", "Price", "Producer", "Release Date", "Pegi", "Position", ""],
             data: props.data
         };
     }
@@ -81,14 +81,14 @@ class DataPane extends Component {
                     {this.state.data.map((item) => {
                        return(
                          <tr key={item.id}>
-                            <th><img src={item.imageUrl} className="h-50"/></th>
+                            <th className="frontImg"><img src={item.imgUrl} className="h-50"/></th>
                             <th>{item.name}</th>
                             <th>{item.category}</th>
                             <th>{item.price}</th>
-                            <th>{item.position}</th>
                             <th>{item.producer}</th>
                             <th>{item.releaseDate}</th>
-                            <th>{item.pegiUrl}</th>
+                            <th className="pegiImg"><img src={item.pegiUrl} className="h-50"/></th>
+                            <th>{item.position}</th>
                             <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.productId)}> </button></th>
                          </tr>
                         );
