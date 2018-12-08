@@ -13,6 +13,14 @@
     margin: 0 auto;
 }
 
+.gameName{
+    padding: 0;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .buttonDownload {
 	display: inline-block;
 	position: relative;

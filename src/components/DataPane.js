@@ -4,6 +4,7 @@ import axios from "axios/index";
 import DataTable from 'datatables.net';
 import * as CONF from '../conf/Conf.js';
 import '../css/dataTables.css';
+import '../css/App.css';
 import DescriptionPopUp from './DescriptionPopUp'
 
 class DataPane extends Component {
@@ -111,7 +112,7 @@ class DataPane extends Component {
                             return (
                                 <tr key={item.productId}>
                                     <th><img src={item.productImageUrl} className="h-50" /></th>
-                                    <th><button onClick = {() => this.toggleDescPopUp(item)}> {item.productName} </button></th>
+                                    <th><button className='gameName' onClick = {() => this.toggleDescPopUp(item)}> {item.productName} </button></th>
                                     <th>{item.productCategory}</th>
                                     <th>{item.productPrice}</th>
                                     <th>{item.position}</th>
