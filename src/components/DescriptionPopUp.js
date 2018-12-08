@@ -25,15 +25,15 @@ class DescriptionPopUp extends Component {
                     <ModalHeader toggle={this.props.toggleDescPopUp}>{this.props.gameItem.productName}</ModalHeader>
                     <ModalBody>
                         <Nav tabs>
-                            <NavItem>
+                        <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '1' })}
-                                         onClick={() => { this.toggle('1'); }}> Szczegóły
-                               </NavLink>
+                                         onClick={() => { this.toggle('2'); }}>Opis
+                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '2' })}
-                                         onClick={() => { this.toggle('2'); }}>Opis
-                                 </NavLink>
+                                         onClick={() => { this.toggle('1'); }}> Szczegóły
+                               </NavLink>
                             </NavItem>
                         </Nav>
 
