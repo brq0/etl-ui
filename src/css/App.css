@@ -21,6 +21,16 @@
     cursor: pointer;
 }
 
+.pegiImg{
+    height: 100px;
+}
+
+.frontImg{
+    height: 300px;
+    padding: 0;
+    margin: 0;
+}
+
 .buttonDownload {
 	display: inline-block;
 	position: relative;

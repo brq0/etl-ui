@@ -14,7 +14,7 @@ class DataPane extends Component {
         this.state = {
             isDescPopUpOpen: false,
             gameClicked: {},
-            head: ["", "Name", "Category", "Price", "Position", ""],
+            head: ["", "Name", "Category", "Price", "Producer", "Release Date", "Pegi", "Position", ""],
             data: [{
                 productId: 'elo',
                 productName: 'name',
@@ -47,6 +47,9 @@ class DataPane extends Component {
         $('#dbTable').DataTable({
             "columns": [
                 { "orderable": false },
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -98,6 +101,7 @@ class DataPane extends Component {
         });
     }
 
+
     render() {
         return (
             <div className="DataPane ml-5 mr-5">
@@ -110,11 +114,14 @@ class DataPane extends Component {
                     <tbody>
                         {this.state.data.map((item) => {
                             return (
-                                <tr key={item.productId}>
-                                    <th><img src={item.productImageUrl} className="h-50" /></th>
-                                    <th><button className='gameName' onClick = {() => this.toggleDescPopUp(item)}> {item.productName} </button></th>
-                                    <th>{item.productCategory}</th>
-                                    <th>{item.productPrice}</th>
+                                <tr key={item.id}>
+                                    <th className="frontImg"><img src={item.imgUrl} className="h-50" /></th>
+                                    <th><button className='gameName' onClick = {() => this.toggleDescPopUp(item)}> {item.name} </button></th>
+                                    <th>{item.category}</th>
+                                    <th>{item.price}</th>
+                                    <th>{item.producer}</th>
+                                    <th>{item.releaseDate}</th>
+                                    <th className="pegiImg"><img src={item.pegiUrl} className="h-50"/></th>
                                     <th>{item.position}</th>
                                     <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.productId)}> </button></th>
                                 </tr>
