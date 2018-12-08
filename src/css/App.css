@@ -21,6 +21,10 @@
     cursor: pointer;
 }
 
+.gameName:hover{
+    color: red;
+}
+
 .pegiImg{
     height: 100px;
 }

@@ -22,17 +22,17 @@ class DescriptionPopUp extends Component {
         return (
             <div>
                 <Modal isOpen={this.props.isDescPopUpOpen} toggle={this.props.toggleDescPopUp}>
-                    <ModalHeader toggle={this.props.toggleDescPopUp}>{this.props.gameItem.productName}</ModalHeader>
+                    <ModalHeader toggle={this.props.toggleDescPopUp}>{this.props.gameItem.name}</ModalHeader>
                     <ModalBody>
                         <Nav tabs>
                         <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '1' })}
-                                         onClick={() => { this.toggle('2'); }}>Opis
+                                         onClick={() => { this.toggle('1'); }}>Szczegóły
                                  </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '2' })}
-                                         onClick={() => { this.toggle('1'); }}> Szczegóły
+                                         onClick={() => { this.toggle('2'); }}> Opis
                                </NavLink>
                             </NavItem>
                         </Nav>
@@ -42,7 +42,7 @@ class DescriptionPopUp extends Component {
                                 <Row>
                                     <Col sm="12">
                                         <h2>Szczegóły tresc</h2>
-                                        {this.props.gameItem.description}
+                                        szczegóły.....
                                     </Col>
                                 </Row>
                             </TabPane>

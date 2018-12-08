@@ -15,22 +15,7 @@ class DataPane extends Component {
             isDescPopUpOpen: false,
             gameClicked: {},
             head: ["", "Name", "Category", "Price", "Producer", "Release Date", "Pegi", "Position", ""],
-            data: [{
-                productId: 'elo',
-                productName: 'name',
-                productCategory: 'category',
-                productPrice: '20zl',
-                position: 1,
-                description: 'dede descriptidiej idejdioadjidsj iadnsaidajs iodasjodjas'
-            },
-            {
-                productId: 'elo1',
-                productName: 'na2123me',
-                productCategory: 'category',
-                productPrice: '20zl',
-                position: 1,
-                description: 'testestetetestestsetse dadsa dsxzcasda d12e asdasd'
-            }]
+            data: props.data
         };
 
         this.toggleDescPopUp = this.toggleDescPopUp.bind(this);
@@ -52,7 +37,7 @@ class DataPane extends Component {
                 null,
                 null,
                 null,
-                null,
+                { "orderable": false },
                 null,
                 { "orderable": false }
             ]
