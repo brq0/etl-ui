@@ -10,7 +10,7 @@ class DataPane extends Component {
         super(props);
 
         this.state = {
-            head: ["", "Name", "Category", "Price", "Position", "Description", "Producer", "Release Date", "Pegi",  ""],
+            head: ["", "Name", "Category", "Price", "Position", "Producer", "Release Date", "Pegi",  ""],
             data: props.data
         };
     }
@@ -19,7 +19,6 @@ class DataPane extends Component {
         $('#dbTable').DataTable({
             "columns": [
                 { "orderable": false },
-                null,
                 null,
                 null,
                 null,
@@ -81,13 +80,12 @@ class DataPane extends Component {
                   <tbody>
                     {this.state.data.map((item) => {
                        return(
-                         <tr key={item.Id}>
-                            <th><img src={item.ImageUrl} className="h-50"/></th>
-                            <th>{item.Name}</th>
-                            <th>{item.Category}</th>
-                            <th>{item.Price}</th>
+                         <tr key={item.id}>
+                            <th><img src={item.imageUrl} className="h-50"/></th>
+                            <th>{item.name}</th>
+                            <th>{item.category}</th>
+                            <th>{item.price}</th>
                             <th>{item.position}</th>
-                            <th>{item.description}</th>
                             <th>{item.producer}</th>
                             <th>{item.releaseDate}</th>
                             <th>{item.pegiUrl}</th>
