@@ -100,7 +100,7 @@ class DataPane extends Component {
                         {this.state.data.map((item) => {
                             return (
                                 <tr key={item.id}>
-                                    <th className="frontImg"><img src={item.imgUrl} className="h-50" /></th>
+                                    <th className="frontImg"><img src={item.imgUrl}  /></th>
                                     <th><button className='gameName' onClick = {() => this.toggleDescPopUp(item)}> {item.name} </button></th>
                                     <th>{item.category}</th>
                                     <th>{item.price}</th>

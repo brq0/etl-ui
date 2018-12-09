@@ -26,13 +26,17 @@
 }
 
 .pegiImg{
-    height: 100px;
+    height: 6em;
 }
 
 .frontImg{
-    height: 300px;
+    height: 6em;
     padding: 0;
     margin: 0;
+}
+
+img{
+    height: 100%;
 }
 
 .buttonDownload {
