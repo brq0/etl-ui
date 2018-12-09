@@ -51,7 +51,7 @@ class EtlButtonsPane extends Component {
                     break;
                 case "Data is being transformed..":
                     if(transformInt == null){
-                        transformInt = setInterval(() => {this.handleTransform()}, 500);
+                        transformInt = setInterval(() => {this.handleTransform()}, 1000);
                     }
                     $("#popup").show();
                     break;
