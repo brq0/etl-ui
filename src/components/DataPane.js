@@ -14,7 +14,7 @@ class DataPane extends Component {
         this.state = {
             isDescPopUpOpen: false,
             gameClicked: {},
-            head: ["", "Name", "Category", "Price", "Producer", "Release Date","Description", "Pegi", "Position", ""],
+            head: ["", "Name", "Category", "Price", "Producer", "Release Date", "Pegi", "Position", ""],
             data: props.data
             /*[{
                 productId: 'elo',	      
