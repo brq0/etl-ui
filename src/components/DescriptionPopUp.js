@@ -21,7 +21,7 @@ class DescriptionPopUp extends Component {
     render() {
         return (
             <div>
-                <Modal isOpen={this.props.isDescPopUpOpen} toggle={this.props.toggleDescPopUp}>
+                <Modal size="lg" isOpen={this.props.isDescPopUpOpen} toggle={this.props.toggleDescPopUp}>
                     <ModalHeader toggle={this.props.toggleDescPopUp}>{this.props.gameItem.name}</ModalHeader>
                     <ModalBody>
                         <Nav tabs>
@@ -42,7 +42,7 @@ class DescriptionPopUp extends Component {
                                 <Row>
                                     <Col sm="12">
                                         <h2>Szczegóły tresc</h2>
-                                        szczegóły.....
+                                        <img src="https://placeimg.com/280/350/any"/>
                                     </Col>
                                 </Row>
                             </TabPane>

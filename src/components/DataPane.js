@@ -14,10 +14,17 @@ class DataPane extends Component {
         this.state = {
             isDescPopUpOpen: false,
             gameClicked: {},
-            head: ["", "Name", "Category", "Price", "Producer", "Release Date", "Pegi", "Position", ""],
+            head: ["", "Name", "Category", "Price", "Producer", "Release Date","Description", "Pegi", "Position", ""],
             data: props.data
-        };
-
+            /*[{
+                productId: 'elo',	      
+                name: 'game',	           
+                category: 'category',
+                price: '20zl',	             
+                position: 1,	             
+                description: 'dede descriptidiej idejdioadjidsj iadnsaidajs iodaasdasdsjodjas'	          
+             }] */
+    }
         this.toggleDescPopUp = this.toggleDescPopUp.bind(this);
     }
 
@@ -108,7 +115,7 @@ class DataPane extends Component {
                                     <th>{item.releaseDate}</th>
                                     <th className="pegiImg"><img src={item.pegiUrl} className="h-50"/></th>
                                     <th>{item.position}</th>
-                                    <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.productId)}> </button></th>
+                                    <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.id)}> </button></th>
                                 </tr>
                             );
                         })}
