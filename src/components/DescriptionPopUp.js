@@ -50,14 +50,14 @@ class DescriptionPopUp extends Component {
                                         <h5>Producer: {this.props.gameItem.producer} </h5>
                                         <h5>Relese Date: {this.props.gameItem.releaseDate} </h5>
                                         <h5>Position: {this.props.gameItem.position} </h5>
-                                        <h5 className="pt-2">Pegi:</h5> {this.props.gameItem.pegiUrl}>
+                                        <h5 className="pt-2 pegiImg">Pegi:</h5> <img src={this.props.gameItem.pegiUrl} alt="pegi"/>
                                     </Col>
                                 </Row>
                             </TabPane>
                             <TabPane tabId="2">
                             <Row>
                                     <Col sm="5">
-                                    <img className="pt-3" src={this.props.gameItem.imgUrl} alt="game img"></img>
+                                    <img className="pt-3 gameImg" src={this.props.gameItem.imgUrl} alt="game img"></img>
                                     </Col>
                                     <Col sm="offset-1"></Col>
                                     <Col className="pt-3" sm="6">

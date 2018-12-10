@@ -35,8 +35,12 @@
     margin: 0;
 }
 .gameImg{
-  height:320px;
-  width: 220px;
+  height:400px;
+  width: 280px;
+}
+.pegiImg{
+  height:50px;
+  width:30px;
 }
 
 img{
