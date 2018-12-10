@@ -42,33 +42,31 @@ class EtlButtonsPane extends Component {
     sendRequest(command){
      axios.get(`${CONF.PAGE}/${command}`)
           .then(({data}) => {
-            switch(data){
-                case "Data is being extracted..":
+                if(data.startsWith("Data is being extracted..")){
                     if(extractInt == null){
                         extractInt = setInterval(() => {this.handleExtract()}, 500);
                     }
                     $("#popup").show();
-                    break;
-                case "Data is being transformed..":
+                }
+                else if(data.startsWith("Data is being transformed..")){
                     if(transformInt == null){
                         transformInt = setInterval(() => {this.handleTransform()}, 1000);
                     }
                     $("#popup").show();
-                    break;
-                case "Data is being loaded..":
+                }
+                 else if(data.startsWith("Data is being loaded..")){
                     if(loadInt == null){
                         loadInt = setInterval(() => {this.handleLoad()}, 500);
                     }
                     $("#popup").show();
-                    break;
-                case "Full ETL Process is running.. Please wait..":
+                }
+                else if(data.includes("E T L")){
                     if(etlInt == null){
                         etlInt = setInterval(() => {this.handleEntireEtlProcess()}, 500);
                     }
                      $("#popup").show();
-                     break;
-
-                default:
+                }
+                else{
                      $("#popup").hide();
                      clearInterval(extractInt);
                      clearInterval(transformInt);
@@ -78,9 +76,7 @@ class EtlButtonsPane extends Component {
                      transformInt = null;
                      loadInt = null;
                      etlInt = null;
-                     break;
             }
-
            {this.props.handleLogging(data)}
      })
      .catch(error => {
