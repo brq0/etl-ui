@@ -34,6 +34,10 @@
     padding: 0;
     margin: 0;
 }
+.gameImg{
+  height:320px;
+  width: 220px;
+}
 
 img{
     height: 100%;
