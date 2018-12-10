@@ -27,12 +27,12 @@ class DescriptionPopUp extends Component {
                         <Nav tabs>
                         <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '1' })}
-                                         onClick={() => { this.toggle('1'); }}>Szczegóły
+                                         onClick={() => { this.toggle('1'); }}>Details
                                  </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '2' })}
-                                         onClick={() => { this.toggle('2'); }}> Opis
+                                         onClick={() => { this.toggle('2'); }}>Description
                                </NavLink>
                             </NavItem>
                         </Nav>
@@ -45,23 +45,23 @@ class DescriptionPopUp extends Component {
                                     </Col>
                                     <Col sm="offset-1"></Col>
                                     <Col className="pt-3" sm="6">
-                                        <h3 className="pb-3">{this.props.gameItem.name}</h3>
+                                        <h4 className="pb-3">{this.props.gameItem.name}</h4>
                                         <h5>Category: {this.props.gameItem.category} </h5>
                                         <h5>Producer: {this.props.gameItem.producer} </h5>
                                         <h5>Relese Date: {this.props.gameItem.releaseDate} </h5>
                                         <h5>Position: {this.props.gameItem.position} </h5>
-                                        <h5 className="pt-2 pegiImg">Pegi:</h5> <img src={this.props.gameItem.pegiUrl} alt="pegi"/>
+                                        <h5 className="pt-2">Pegi:</h5> <img src={this.props.gameItem.pegiUrl} className="pegiImg"/>
                                     </Col>
                                 </Row>
                             </TabPane>
                             <TabPane tabId="2">
                             <Row>
                                     <Col sm="5">
-                                    <img className="pt-3 gameImg" src={this.props.gameItem.imgUrl} alt="game img"></img>
+                                    <img className="pt-3 gameImg" src={this.props.gameItem.imgUrl} alt="gameImg"></img>
                                     </Col>
                                     <Col sm="offset-1"></Col>
                                     <Col className="pt-3" sm="6">
-                                        <h3>O grze:</h3>
+                                        <h4>About game:</h4>
                                         {this.props.gameItem.description}
                                     </Col>
                                 </Row>
