@@ -16,14 +16,18 @@ class DataPane extends Component {
             gameClicked: {},
             head: ["", "Name", "Category", "Price", "Producer", "Release Date", "Pegi", "Position", ""],
             data: props.data
-            /*[{
-                productId: 'elo',	      
-                name: 'game',	           
-                category: 'category',
-                price: '20zl',	             
-                position: 1,	             
-                description: 'dede descriptidiej idejdioadjidsj iadnsaidajs iodaasdasdsjodjas'	          
-             }] */
+            /* [{
+                productId: '1',	      
+                name: 'Metin2',	   
+                imgUrl: 'https://placeimg.com/280/350/any',        
+                category: 'MMORPG',
+                price: '159,99zł',	
+                producer: 'eldorado',             
+                position: 1,  
+                releaseDate: '12-12-1992',    
+                pegiUrl: "https://placeimg.com/220/320/animals",          
+                description: 'Metin2 to kolejny przedstawiciel gatunku darmowych gier MMORPG, niewymagających uiszczania comiesięcznego abonamentu. Wydana i utrzymywana przez firmę G4Box (m.in. Dragon Raja) oferuje większość standardowych pomysłów typowych dla przedstawicieli gatunku MMO, uzupełnionych kilkoma oryginalnymi rozwiązaniami, przede wszystkim dopracowanym, mocno zręcznościowym modelem walki, przypominającym trójwymiarowe gry akcji, pokroju Daemon Vector czy Forgotten Realms: Demon Stone.'	          
+             }]*/
     }
         this.toggleDescPopUp = this.toggleDescPopUp.bind(this);
     }

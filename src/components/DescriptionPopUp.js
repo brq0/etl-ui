@@ -22,7 +22,7 @@ class DescriptionPopUp extends Component {
         return (
             <div>
                 <Modal size="lg" isOpen={this.props.isDescPopUpOpen} toggle={this.props.toggleDescPopUp}>
-                    <ModalHeader toggle={this.props.toggleDescPopUp}>{this.props.gameItem.name}</ModalHeader>
+                    <ModalHeader toggle={this.props.toggleDescPopUp}><h2>{this.props.gameItem.name}</h2></ModalHeader>
                     <ModalBody>
                         <Nav tabs>
                         <NavItem>
@@ -40,16 +40,28 @@ class DescriptionPopUp extends Component {
                         <TabContent activeTab={this.state.activeTab}>
                             <TabPane tabId="1">
                                 <Row>
-                                    <Col sm="12">
-                                        <h2>Szczegóły tresc</h2>
-                                        <img src="https://placeimg.com/280/350/any"/>
+                                    <Col sm="5">
+                                    <img className="pt-3" src={this.props.gameItem.imgUrl} alt="game img"></img>
+                                    </Col>
+                                    <Col sm="offset-1"></Col>
+                                    <Col className="pt-3" sm="6">
+                                        <h3 className="pb-3">{this.props.gameItem.name}</h3>
+                                        <h5>Category: {this.props.gameItem.category} </h5>
+                                        <h5>Producer: {this.props.gameItem.producer} </h5>
+                                        <h5>Relese Date: {this.props.gameItem.releaseDate} </h5>
+                                        <h5>Position: {this.props.gameItem.position} </h5>
+                                        <h5 className="pt-2">Pegi:</h5> {this.props.gameItem.pegiUrl} alt="pegi">
                                     </Col>
                                 </Row>
                             </TabPane>
                             <TabPane tabId="2">
                             <Row>
-                                    <Col sm="12">
-                                        <h2>Opis tresc</h2>
+                                    <Col sm="5">
+                                    <img className="pt-3" src={this.props.gameItem.imgUrl} alt="game img"></img>
+                                    </Col>
+                                    <Col sm="offset-1"></Col>
+                                    <Col className="pt-3" sm="6">
+                                        <h3>O grze:</h3>
                                         {this.props.gameItem.description}
                                     </Col>
                                 </Row>
