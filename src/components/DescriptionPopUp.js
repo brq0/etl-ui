@@ -47,8 +47,9 @@ class DescriptionPopUp extends Component {
                                     <Col className="pt-3" sm="6">
                                         <h4 className="pb-3">{this.props.gameItem.name}</h4>
                                         <h5>Category: {this.props.gameItem.category} </h5>
+                                        <h5>Price: {this.props.gameItem.price} </h5>
                                         <h5>Producer: {this.props.gameItem.producer} </h5>
-                                        <h5>Relese Date: {this.props.gameItem.releaseDate} </h5>
+                                        <h5>Release Date: {this.props.gameItem.releaseDate} </h5>
                                         <h5>Position: {this.props.gameItem.position} </h5>
                                         <h5 className="pt-2">Pegi:</h5> <img src={this.props.gameItem.pegiUrl} className="pegiImg"/>
                                     </Col>

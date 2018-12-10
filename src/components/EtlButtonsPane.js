@@ -11,6 +11,7 @@ let extractInt = null;
 let transformInt = null;
 let loadInt = null;
 let etlInt = null;
+let errorOccurred = false;
 
 class EtlButtonsPane extends Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class EtlButtonsPane extends Component {
         this.handleLoad = this.handleLoad.bind(this);
         this.sendRequest = this.sendRequest.bind(this);
         this.handleEntireEtlProcess = this.handleEntireEtlProcess.bind(this);
+        this.stopRequest = this.stopRequest.bind(this);
     }
 
     handleExtract(e){
@@ -40,6 +42,7 @@ class EtlButtonsPane extends Component {
     }
 
     sendRequest(command){
+     errorOccurred = false;
      axios.get(`${CONF.PAGE}/${command}`)
           .then(({data}) => {
                 if(data.startsWith("Data is being extracted..")){
@@ -67,25 +70,34 @@ class EtlButtonsPane extends Component {
                      $("#popup").show();
                 }
                 else{
-                     $("#popup").hide();
-                     clearInterval(extractInt);
-                     clearInterval(transformInt);
-                     clearInterval(loadInt);
-                     clearInterval(etlInt);
-                     extractInt = null;
-                     transformInt = null;
-                     loadInt = null;
-                     etlInt = null;
+                    this.stopRequest();
             }
            {this.props.handleLogging(data)}
      })
      .catch(error => {
-            if(error.message === 'Network Error') alert("Run etlapp");
-            clearInterval(extractInt);
-            clearInterval(transformInt);
-            clearInterval(loadInt);
-            clearInterval(etlInt);
+            this.stopRequest();
+            if(error.message === 'Network Error')
+             {
+                if(!errorOccurred){
+                    alert("Run etlapp");
+                    errorOccurred = true;
+                }
+            }
+
      });
+    }
+
+    stopRequest(){
+         $("#popup").hide();
+         clearInterval(extractInt);
+         clearInterval(transformInt);
+         clearInterval(loadInt);
+         clearInterval(etlInt);
+         extractInt = null;
+         transformInt = null;
+         loadInt = null;
+         etlInt = null;
+         this.props.handleLogging("An error occurred. Please contact administrator.")
     }
 
     render() {
