@@ -13,6 +13,40 @@
     margin: 0 auto;
 }
 
+.gameName{
+    padding: 0;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.gameName:hover{
+    color: red;
+}
+
+.pegiImg{
+    height: 6em;
+}
+
+.frontImg{
+    height: 6em;
+    padding: 0;
+    margin: 0;
+}
+.gameImg{
+  height:400px;
+  width: 280px;
+}
+.pegiImg{
+  height:50px;
+  width:30px;
+}
+
+img{
+    height: 100%;
+}
+
 .buttonDownload {
 	display: inline-block;
 	position: relative;
