@@ -67,7 +67,7 @@ class App extends Component {
                     <EtlButtonsPane handleLogging={this.handleLogging}/>
                     <div className="ml-5 mr-5">
                         <div className="mb-5 col-centered">
-                            <RSButton className="col-2" color="success" onClick={this.loadDataFromDb}>Load Data</RSButton>
+                            <RSButton className="col-2" color="success" onClick={this.loadDataFromDb}>Get Data from DB</RSButton>
                             <RSButton className="col-1 ml-1" color="danger" onClick={this.restartDb}>Restart DB</RSButton>
                         </div>
                     </div>
