@@ -99,13 +99,13 @@ class DataPane extends Component {
                         {this.state.data.map((item) => {
                             return (
                                 <tr key={item.id}>
-                                    <th className="frontImg"><img src={item.imgUrl}  /></th>
+                                    <th className="frontImg"><img src={item.imgUrl}  alt="img"/></th>
                                     <th><button className='gameName' onClick = {() => this.toggleDescPopUp(item)}> {item.name} </button></th>
                                     <th>{item.category}</th>
                                     <th>{item.price}</th>
                                     <th>{item.producer}</th>
                                     <th>{item.releaseDate}</th>
-                                    <th className="pegiImg"><img src={item.pegiUrl} className="h-50"/></th>
+                                    <th className="pegiImg"><img src={item.pegiUrl} className="h-50" alt="pegi"/></th>
                                     <th>{item.position}</th>
                                     <th><button className="buttonDownload" onClick={() => this.downloadTxt(item.id)}> </button></th>
                                 </tr>

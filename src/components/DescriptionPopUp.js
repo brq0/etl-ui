@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 
 class DescriptionPopUp extends Component {
@@ -51,7 +51,7 @@ class DescriptionPopUp extends Component {
                                         <h5>Producer: {this.props.gameItem.producer} </h5>
                                         <h5>Release Date: {this.props.gameItem.releaseDate} </h5>
                                         <h5>Position: {this.props.gameItem.position} </h5>
-                                        <h5 className="pt-2">Pegi:</h5> <img src={this.props.gameItem.pegiUrl} className="pegiImg"/>
+                                        <h5 className="pt-2">Pegi:</h5> <img src={this.props.gameItem.pegiUrl} className="pegiImg" alt="pegi"/>
                                     </Col>
                                 </Row>
                             </TabPane>
