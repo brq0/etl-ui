@@ -22,7 +22,7 @@ class DescriptionPopUp extends Component {
         return (
             <div>
                 <Modal size="lg" isOpen={this.props.isDescPopUpOpen} toggle={this.props.toggleDescPopUp}>
-                    <ModalHeader toggle={this.props.toggleDescPopUp}><h2>{this.props.gameItem.name}</h2></ModalHeader>
+                    <ModalHeader toggle={this.props.toggleDescPopUp}>{this.props.gameItem.name}</ModalHeader>
                     <ModalBody>
                         <Nav tabs>
                         <NavItem>

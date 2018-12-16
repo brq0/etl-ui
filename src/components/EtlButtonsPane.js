@@ -72,7 +72,7 @@ class EtlButtonsPane extends Component {
                 else{
                     this.stopRequest();
             }
-           {this.props.handleLogging(data)}
+           this.props.handleLogging(data)
      })
      .catch(error => {
             this.stopRequest();
@@ -107,7 +107,7 @@ class EtlButtonsPane extends Component {
                <div className="col-md-9 mt-5 col-centered">
                   <RSButton className="col-1" outline color="warning" onClick={this.handleExtract}>E</RSButton>
                   <RSButton className="col-1 ml-4" outline color="danger" onClick={this.handleTransform}>T</RSButton>
-                  <RSButton on className="col-1 ml-4" outline color="info" onClick={this.handleLoad}>L</RSButton>
+                  <RSButton className="col-1 ml-4" outline color="info" onClick={this.handleLoad}>L</RSButton>
                </div>
 
                <div className="ml-5 mr-5">
