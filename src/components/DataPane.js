@@ -43,12 +43,6 @@ class DataPane extends Component {
         });
     }
 
-     togglePopup() {
-        this.setState({
-          descPopUp: !this.state.descPopUp
-        });
-      }
-
     downloadTxt(id){
          axios({
            url: `${CONF.PAGE}/generateTxt?id=${id}`,
